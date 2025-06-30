@@ -6,6 +6,6 @@ public class Apprenticeship : CourseType
 {
     public override string ShortCode => "Apprenticeship";
     public override RecognitionOfPriorLearning RecognitionOfPriorLearning => new RecognitionOfPriorLearningRequired(offTheJobTrainingMinimumHours: 187);
-    public override LearnerAge LearnerAge => new(minimumAge: 16, maximumAge: 67);
+    public override LearnerAge LearnerAge => new(minimumAge: 15, maximumAge: 115);
     public override CourseDuration CourseDuration => new(minimumDurationMonths: 8, maximumDurationMonths: 48);
 }
