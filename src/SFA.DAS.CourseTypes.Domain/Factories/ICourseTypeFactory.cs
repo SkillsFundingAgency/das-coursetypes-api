@@ -1,9 +1,8 @@
 ﻿using SFA.DAS.CourseTypes.Domain.CourseTypes;
 
-namespace SFA.DAS.CourseTypes.Domain.Factories
+namespace SFA.DAS.CourseTypes.Domain.Factories;
+
+public interface ICourseTypeFactory
 {
-    public interface ICourseTypeFactory
-    {
-        public CourseType Get(string shortCode);
-    }
+    public CourseType Get(string shortCode);
 }

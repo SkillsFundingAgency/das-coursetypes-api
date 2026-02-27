@@ -1,14 +1,13 @@
-﻿using SFA.DAS.CourseTypes.Domain.CourseTypes;
+using SFA.DAS.CourseTypes.Domain.CourseTypes;
 
-namespace SFA.DAS.CourseTypes.Domain.Factories
+namespace SFA.DAS.CourseTypes.Domain.Factories;
+
+public class CourseTypeFactory : ICourseTypeFactory
 {
-    public class CourseTypeFactory : ICourseTypeFactory
-    {
-        private readonly IEnumerable<CourseType> _courseTypes = new List<CourseType> { new Apprenticeship(), new FoundationApprenticeship() };
+    private readonly IEnumerable<CourseType> _courseTypes = new List<CourseType> { new Apprenticeship(), new FoundationApprenticeship(), new ApprenticeshipUnit() };
 
-        public CourseType Get(string shortCode)
-        {
-            return _courseTypes.Single(x => string.Equals(x.ShortCode, shortCode, StringComparison.InvariantCultureIgnoreCase));
-        }
+    public CourseType Get(string shortCode)
+    {
+        return _courseTypes.Single(x => string.Equals(x.ShortCode, shortCode, StringComparison.InvariantCultureIgnoreCase));
     }
 }

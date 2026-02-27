@@ -1,4 +1,4 @@
-﻿using SFA.DAS.CourseTypes.Domain.Features;
+using SFA.DAS.CourseTypes.Domain.Features;
 
 namespace SFA.DAS.CourseTypes.Domain.CourseTypes;
 
@@ -8,4 +8,6 @@ public class Apprenticeship : CourseType
     public override RecognitionOfPriorLearning RecognitionOfPriorLearning => new RecognitionOfPriorLearningRequired(offTheJobTrainingMinimumHours: 187);
     public override LearnerAge LearnerAge => new(minimumAge: 15, maximumAge: 115);
     public override CourseDuration CourseDuration => new(minimumDurationMonths: 8, maximumDurationMonths: 48);
+    public override AllowBulkUpload AllowBulkUpload => new(isAllowed: true);
+    public override AllowFlexiDeliveryModel AllowFlexiDeliveryModel => new(isAllowed: true);
 }
