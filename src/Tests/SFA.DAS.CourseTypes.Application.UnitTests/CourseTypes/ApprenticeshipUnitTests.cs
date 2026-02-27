@@ -45,7 +45,7 @@ public class ApprenticeshipUnitTests
         var result = _sut.LearnerAge;
 
         // Assert
-        result.MinimumAge.Should().Be(15);
+        result.MinimumAge.Should().Be(19);
         result.MaximumAge.Should().Be(115);
     }
 
