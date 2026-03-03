@@ -10,4 +10,5 @@ public class ApprenticeshipUnit : CourseType
     public override CourseDuration CourseDuration => new(minimumDurationMonths: 8, maximumDurationMonths: 48);
     public override AllowBulkUpload AllowBulkUpload => new(isAllowed: false);
     public override AllowFlexiDeliveryModel AllowFlexiDeliveryModel => new(isAllowed: false);
+    public override bool AllowEmployerAdd => false;
 }
