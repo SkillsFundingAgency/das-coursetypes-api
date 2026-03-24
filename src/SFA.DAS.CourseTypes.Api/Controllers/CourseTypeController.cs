@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SFA.DAS.CourseTypes.Api.ApiResponses;
 using SFA.DAS.CourseTypes.Application.Application.Queries.GetAllowBulkUpload;
+using SFA.DAS.CourseTypes.Application.Application.Queries.GetAllowEmployerAdd;
 using SFA.DAS.CourseTypes.Application.Application.Queries.GetAllowFlexiDeliveryModel;
 using SFA.DAS.CourseTypes.Application.Application.Queries.GetCourseDuration;
 using SFA.DAS.CourseTypes.Application.Application.Queries.GetLearnerAge;
@@ -105,6 +106,28 @@ public class FeaturesController(IMediator mediator, ILogger<FeaturesController> 
         catch (Exception e)
         {
             logger.LogError(e, "GetAllowFlexiDeliveryModel : An error occurred");
+            return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
+        }
+    }
+
+    [HttpGet]
+    [Route("api/coursetypes/features/allowEmployerAdd")]
+    public async Task<IActionResult> GetAllowEmployerAdd([FromQuery] string learningType)
+    {
+        if (string.IsNullOrWhiteSpace(learningType))
+            return BadRequest();
+
+        try
+        {
+            var result = await mediator.Send(new GetAllowEmployerAddQuery
+            {
+                LearningType = learningType
+            });
+            return Ok((GetAllowEmployerAddApiResponse)result);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "GetAllowEmployerAdd : An error occurred");
             return new StatusCodeResult((int)HttpStatusCode.InternalServerError);
         }
     }

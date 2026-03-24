@@ -10,4 +10,5 @@ public abstract class CourseType
     public abstract CourseDuration CourseDuration { get; }
     public abstract AllowBulkUpload AllowBulkUpload { get; }
     public abstract AllowFlexiDeliveryModel AllowFlexiDeliveryModel { get; }
+    public abstract bool AllowEmployerAdd { get; }
 }
